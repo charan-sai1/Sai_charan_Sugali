@@ -175,7 +175,7 @@ var swiper = new Swiper(".mySwiper", {
     delay:2000,
   }
 });
-gsap.from("#card",{scrollTrigger:{trigger:"#card",scroller:"body",scrub:true,start:"top bottom",end:"30% 80%"},opacity:0,scale:0.7,transformOrigin:"50% 50%",  ease: Power2.easeInOut})
+gsap.from("#card",{scrollTrigger:{trigger:"#card",scroller:"body",scrub:true,start:"top bottom",end:"30% 80%"},opacity:0,transformOrigin:"50% 50%",  ease: Power2.easeInOut})
 gsap.from(".line",{scrollTrigger:{trigger:".line",scroller:"body",scrub:true},width:0,ease:"power2"})
 gsap.from("#title-skill",{scrollTrigger:{trigger:"#title-skill",scroller:"body",scrub:true,start:"top 30%",end:"bottom 10%"},opacity:0,x:1,  ease: Power2.easeInOut})
 

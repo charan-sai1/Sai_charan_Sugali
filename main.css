@@ -603,11 +603,12 @@ body{
     border-top-right-radius: 10px;
 }
 #mnp{
+    overflow-y: hidden;
     object-fit:contain;
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    height: auto;
+    height: 70%;
 }
 #abtproject>p{
     font-weight: 100;

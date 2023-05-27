@@ -124,10 +124,10 @@ tl.from("#cont", {
   end: "50% 50%"
   
   
-},delay:1.5,onComplete: function () {
+},delay:0.5,onComplete: function () {
   const text = document.querySelector(".typewriter");
   const typewriter = new Typewriter(text, {
-    delay: 10,
+    delay: 3,
   });
   typewriter
     .typeString(
@@ -233,7 +233,6 @@ function displayThumbDetails(thumb) {
 
   // Apply flip animation to the mainImage using GSAP
   gsap.to(mainImage, {
-    rotationY: -90,
     duration: 0.4,
     ease: 'power2.inOut',
     onComplete: () => {
@@ -243,15 +242,15 @@ function displayThumbDetails(thumb) {
       // Reverse the flip animation for the mainImage using GSAP
       gsap.fromTo(
         mainImage,
-        { rotationY: 90 },
-        { rotationY: 0, duration: 0.4, ease: 'power2.inOut' }
+        { opacity:0,x:-100 },
+        { opacity:1, duration: 0.4, ease: 'power2.inOut' }
       );
 
       // Apply flip animation to the abtproject section using GSAP
       gsap.fromTo(
         '#abtproject',
-        { rotationY: 0, opacity: 1 },
-        { rotationY: 90, opacity: 0, duration: 0.3, ease: 'power2.inOut', delay: 0.1, onComplete: () => {
+        { y:10, opacity: 1 },
+        { y:0, opacity: 0, duration: 0.3, ease: 'power2.inOut', delay: 0.1, onComplete: () => {
             // Update the mainProjectTitle and mainProjectDescription
             mainProjectTitle.textContent = projectTitle;
             mainProjectDescription.textContent = projectDescription;
@@ -259,8 +258,8 @@ function displayThumbDetails(thumb) {
             // Reverse the flip animation for the abtproject section using GSAP
             gsap.fromTo(
               '#abtproject',
-              { rotationY: -90, opacity: 0 },
-              { rotationY: 0, opacity: 1, duration: 0.3, ease: 'power2.inOut' }
+              { y:-10, opacity: 0 },
+              { y:0, opacity: 1, duration: 0.3, ease: 'power2.inOut' }
             );
           }
         }

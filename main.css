@@ -425,6 +425,10 @@ body{
 
 }
 @media only screen and (max-width: 640px) {
+    #body{
+        width: 100vw;
+        overflow: hidden;
+    }
     #menu-box { 
       display: flex;
       flex-direction: column;

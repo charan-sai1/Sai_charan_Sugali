@@ -544,8 +544,7 @@ body{
         cursor: pointer;
     }
     .swiper{
-        width: 95%;
-        overflow: hidden;
+        overflow: hidden !important;
     }
 }
 

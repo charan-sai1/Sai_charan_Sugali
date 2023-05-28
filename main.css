@@ -543,6 +543,10 @@ body{
     #navul{
         cursor: pointer;
     }
+    .swiper{
+        width: 95%;
+        overflow: hidden;
+    }
 }
 
 #page3{

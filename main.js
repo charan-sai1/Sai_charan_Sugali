@@ -114,9 +114,10 @@ tl.from("#cont", {
     scrub:true,
     
   },
+
   ease:"power2",
   opacity: 0,
-  duration: 2,
+  x:100,
 })
 .from("#splits>p",{  scrollTrigger: {
   trigger: "#cont",
@@ -242,7 +243,7 @@ function displayThumbDetails(thumb) {
       // Reverse the flip animation for the mainImage using GSAP
       gsap.fromTo(
         mainImage,
-        { opacity:0,x:-5 },
+        { opacity:0,x:1 },
         { opacity:1, duration: 0.3, ease: 'power2.inOut' }
       );
 
@@ -258,8 +259,13 @@ function displayThumbDetails(thumb) {
             // Reverse the flip animation for the abtproject section using GSAP
             gsap.fromTo(
               '#abtproject',
-              { y:-10, opacity: 0 },
-              { y:0, opacity: 1, duration: 0.3, ease: 'power2.inOut' }
+              { y:-90, opacity: 0 },
+              { y:0, opacity: 1, duration: 0.5, ease: 'power2.inOut' }
+            );
+            gsap.fromTo(
+              mainProjectTitle,
+              { x:-50,scale:1.5, opacity: 0 },
+              { x:0, opacity: 1,scale:1, duration: 0.5, ease: 'power2.inOut' }
             );
           }
         }
@@ -267,3 +273,46 @@ function displayThumbDetails(thumb) {
     }
   });
 }
+
+
+gsap.from("#gallery",{
+  scrollTrigger:{
+    scroller:"body",
+    trigger:"#gallery",
+    scrub:true,
+    start:"-50% 50%",
+    end:"30% bottom"
+  },
+  opacity:0,
+  x:100,
+  ease:"power2.inout"
+})
+gsap.from("#thumbs",{
+  scrollTrigger:{
+    scroller:"body",
+    trigger:"#thumbs",
+    scrub:true,
+    start:"-90% 50%",
+    end:"200% 40%"
+  },
+  opacity:0,
+  x:200,
+  ease:"power1.inout"
+})
+
+gsap.from("#thumbs>img",{
+  scrollTrigger:{
+    scroller:"body",
+    trigger:"#thumbs>img",
+    scrub:true,
+    start:"-90% 50%",
+    end:"200% 40%"
+  },
+  opacity:0,
+  x:200,
+  ease:"power1.inout"
+}).on("mouseenter", function(){
+  gsap.to(this, {opacity:1, duration: 0.3});
+}).on("mouseleave", function(){
+  gsap.to(this, {opacity:0.6, duration: 0.3});
+});

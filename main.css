@@ -17,16 +17,15 @@ body{
 
 
 ::-webkit-scrollbar {
-  max-width: 3px;
+  display: none;
   scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-  background-color: white;
+    display: none;
 }
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  display: none;
 }
 #main{
     padding: 0;
@@ -596,6 +595,7 @@ body{
     background-color: rgba(166, 166, 166, 0.203);
     
 }
+
 #mainph{
     margin-top: 10px;
     cursor:auto;
@@ -610,6 +610,7 @@ body{
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.601);
     background-color: rgba(166, 166, 166, 0.222);
 }
+
 #mnp>img{
     width: 100%;
     position:static;
@@ -644,8 +645,10 @@ body{
     object-fit:fill;
     width: 100%;
 }
+#title-p>h2{
+    font-weight: 200;
+}
 #title-p{
-    
     font-weight: 100;
     font-size: 46px;
     width: auto;

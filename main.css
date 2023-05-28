@@ -425,7 +425,7 @@ body{
     padding: 0 25%;
 
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 640px) {
     #menu-box { 
       display: flex;
       flex-direction: column;
@@ -565,13 +565,26 @@ body{
     width: 15%;
     height: 100%;
 }
+#thumbs>img:hover{
+    filter: brightness(1);
+
+}
 #thumbs>img{
+    filter: brightness(-10);
     cursor: pointer;
     height: 100%;
     width: auto;
     border-radius: 10px;
 }
+
+#thumbs:hover{
+    opacity: 1;
+    transition: ease-in-out .3s;
+    box-shadow: 0 0 100px solid black;
+}
 #thumbs{
+    
+    opacity: 0.6;
     overflow: hidden;
     object-fit: cover;
     width: 6vw;
@@ -598,6 +611,7 @@ body{
     background-color: rgba(166, 166, 166, 0.222);
 }
 #mnp>img{
+    width: 100%;
     position:static;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

@@ -12,7 +12,7 @@ window.addEventListener("load", function() {
     .to(navItems, { duration: 0.5, x: 0, ease: "power2.out", duration: 1 }, 0.1);
   
   menu.addEventListener("click", () => {
-    if (window.innerWidth < 480) {
+    if (window.innerWidth < 640) {
       menuBox.classList.toggle("hide");
       if (menuBox.classList.contains("hide")) {
         tl.reverse();
@@ -233,7 +233,7 @@ function displayThumbDetails(thumb) {
 
   // Apply flip animation to the mainImage using GSAP
   gsap.to(mainImage, {
-    duration: 0.4,
+    duration: 0.3,
     ease: 'power2.inOut',
     onComplete: () => {
       // Update the mainImage with the new source
@@ -242,15 +242,15 @@ function displayThumbDetails(thumb) {
       // Reverse the flip animation for the mainImage using GSAP
       gsap.fromTo(
         mainImage,
-        { opacity:0,x:-100 },
-        { opacity:1, duration: 0.4, ease: 'power2.inOut' }
+        { opacity:0,x:-5 },
+        { opacity:1, duration: 0.3, ease: 'power2.inOut' }
       );
 
       // Apply flip animation to the abtproject section using GSAP
       gsap.fromTo(
         '#abtproject',
         { y:10, opacity: 1 },
-        { y:0, opacity: 0, duration: 0.3, ease: 'power2.inOut', delay: 0.1, onComplete: () => {
+        { y:0, opacity: 0, duration: 0.4, ease: 'power2.inOut', delay: 0.1, onComplete: () => {
             // Update the mainProjectTitle and mainProjectDescription
             mainProjectTitle.textContent = projectTitle;
             mainProjectDescription.textContent = projectDescription;

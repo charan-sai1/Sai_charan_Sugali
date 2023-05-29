@@ -11,17 +11,32 @@ window.addEventListener("load", function() {
   tl.to(menuBox, { duration: 0.8, x: 0, ease: "power2.out", duration: 1 })
     .to(navItems, { duration: 0.5, x: 0, ease: "power2.out", duration: 1 }, 0.1);
   
-  menu.addEventListener("click", () => {
-    if (window.innerWidth < 640) {
-      menuBox.classList.toggle("hide");
-      if (menuBox.classList.contains("hide")) {
-        tl.reverse();
-      } else {
-        tl.restart();
+    menu.addEventListener("click", () => {
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const aspectRatio = windowWidth / windowHeight;
+    
+      const desiredRatios = [
+        { width: 4, height: 5 }, // Example: 4:5
+        { width: 2, height: 3 }, // Example: 2:3
+        { width: 9, height: 16 }, // Example: 9:16
+      ];
+    
+      const isMobileView = desiredRatios.some((ratio) => {
+        const ratioValue = ratio.width / ratio.height;
+        return Math.abs(aspectRatio - ratioValue) < 0.01;
+      });
+    
+      if (isMobileView) {
+        menuBox.classList.toggle("hide");
+        if (menuBox.classList.contains("hide")) {
+          tl.reverse();
+        } else {
+          tl.restart();
+        }
       }
-    }
-  });  
-
+    });
+    
 
 
 });
@@ -243,7 +258,7 @@ function displayThumbDetails(thumb) {
       // Reverse the flip animation for the mainImage using GSAP
       gsap.fromTo(
         mainImage,
-        { opacity:0,x:1 },
+        { opacity:0,x:-5 },
         { opacity:1, duration: 0.3, ease: 'power2.inOut' }
       );
 
@@ -259,7 +274,7 @@ function displayThumbDetails(thumb) {
             // Reverse the flip animation for the abtproject section using GSAP
             gsap.fromTo(
               '#abtproject',
-              { y:-90, opacity: 0 },
+              { y:-10, opacity: 0 },
               { y:0, opacity: 1, duration: 0.5, ease: 'power2.inOut' }
             );
             gsap.fromTo(

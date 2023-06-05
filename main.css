@@ -368,7 +368,7 @@ body{
 .timeline ul li {
   padding: 20px;
   background-color: #7373732b;
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(50px);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.515);
   color: white;
   border-radius: 10px;
@@ -403,8 +403,15 @@ body{
     transform: translateX(-50%);
     width: 2px;
     height: 100%;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.619);
   }
+  .timeline ul li:hover {
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+    scale: 1.01;
+    background-color: rgba(255, 255, 255, 0.195);
+    box-shadow: 0 0 50px rgba(150, 150, 150, 0.199);
+}
   .timeline ul li {
     width: 50%;
     position: relative;
@@ -444,7 +451,9 @@ body{
     top: -30px;
   }
   .timeline ul li:hover::before {
-    background-color: aqua;
+    box-shadow: 0 0 40px rgb(196, 196, 196);
+    transition: ease-in-out .5s;
+    background-color: rgb(236, 236, 236);
   }
 }
 
@@ -462,7 +471,14 @@ body{
     font-size: 36px;
     font-weight: 100;
 }
-
+.timeline-content h1{
+    font-weight: 400;
+    font-size: 20px;
+}
+.timeline-content p{
+    font-weight: 100;
+    width: auto;
+}
 .material-symbols-outlined {
     padding-top: 35px;
   font-size: 50px !important;
@@ -709,6 +725,7 @@ body{
 #abtproject>p{
     font-weight: 100;
     padding:0 5%;
+    padding-bottom: 3%;
 }
 #abtproject>h2{
     font-weight: 300;

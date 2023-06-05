@@ -21,12 +21,12 @@ window.addEventListener("load", function() {
       }
     }
   });  
+  gsap.from("#navul",{opacity:0,duration:10})
+  gsap.from("#menu-box",{height:0,duration:5})
 
 
 
 });
-
-
 const menu = document.querySelector('#menu');
 const menuBox = document.querySelector('#menu-box');
 
@@ -111,6 +111,7 @@ tl.from("#cont", {
   opacity: 0,
   x:100,
 })
+
 .from("#splits>p",{  scrollTrigger: {
   trigger: "#cont",
   start: "-25% 50%",
@@ -127,7 +128,7 @@ tl.from("#cont", {
       "Hello, my name is Sai Charan, I am currently a student of engineering. I am a diligent and industrious individual, with a strong aptitude for practical knowledge and a proven track record of leadership. My dedication to hard work and my unwavering commitment to excellence are matched only by my strong character and ability to lead with integrity . . . . . In addition to my academic responsibilities, I am an active member of the Department of Student Affairs (DSA), a college-level student organisation with over 600 members. I oversee DSA's Social Media team of 54 people, and we have successfully executed various social media campaigns and events.\n\n"
     )
     .typeString(
-      "Aside from my academic and extracurricular successes, I am passionate about learning new technologies and artistic endeavours such as editing and painting. I appreciate learning about new tools and applications, and,I'm always up for new challenges and projects. In my spare time, I enjoy watching web series and engaging in hobbies.I hit the gym on a frequent schedule."
+      "\nAside from my academic and extracurricular successes, I am passionate about learning new technologies and artistic endeavours such as editing and painting. I appreciate learning about new tools and applications, and,I'm always up for new challenges and projects. In my spare time, I enjoy watching web series and engaging in hobbies.I hit the gym on a frequent schedule."
     )
     .start();
   text.style.visibility = "visible";},delay:1.5})

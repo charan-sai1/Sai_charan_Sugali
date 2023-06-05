@@ -40,7 +40,7 @@ body{
     display: none;
 }
 #menu-box {
-
+    border-left: .5px solid white;
     position: fixed;
     top: 10%;
     right: 0;
@@ -52,14 +52,17 @@ body{
     font-weight: 100;
     justify-content: space-between;
     height: 60%;
-    padding: 10px;
+    width: 30px;
+    padding-left: 10px;
+    margin: 0 1%;
     z-index: 1;
 }
 .hide {
     display: none !important;
 }
 #navul{
-    transform: rotate(90deg) !important;
+    transform: rotate(90deg) ;
+    padding: 10px 0px;
 }
 #navul:hover {
     transition: ease-in-out;
@@ -269,6 +272,7 @@ body{
 #scroldwn>img{
     width: 41px;
     height: 37px;
+    animation: float 3s infinite;
 }
 
 @keyframes float{
@@ -334,11 +338,115 @@ body{
 }
 
 #page2{
+    display: block;
+    user-select: none;
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     position: relative;
 }
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
+.container {
+  min-height: 100%;
+  width: 95%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #11111100;
+}
+.timeline {
+  width: 80%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
 
+.timeline ul {
+  list-style: none;
+}
+.timeline ul li {
+  padding: 20px;
+  background-color: #7373732b;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.515);
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.timeline ul li:last-child {
+  margin-bottom: 0;
+}
+.timeline-content h1 {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.timeline-content p {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 300;
+}
+.timeline-content .date {
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+@media only screen and (min-width: 768px) {
+  .timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: gray;
+  }
+  .timeline ul li {
+    width: 50%;
+    position: relative;
+    margin-bottom: 50px;
+  }
+  .timeline ul li:nth-child(odd) {
+    float: left;
+    clear: right;
+    transform: translateX(-131px);
+    border-radius: 20px 0px 20px 20px;
+  }
+  .timeline ul li:nth-child(even) {
+    float: right;
+    clear: left;
+    transform: translateX(50px);
+    border-radius: 0px 20px 20px 20px;
+  }
+  .timeline ul li::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: gray;
+    top: 0px;
+  }
+  .timeline ul li:nth-child(odd)::before {
+    transform: translate(50%, -50%);
+    right: -71px;
+  }
+  .timeline ul li:nth-child(even)::before {
+    transform: translate(-50%, -50%);
+    left: -30px;
+  }
+  .timeline-content .date {
+    position: absolute;
+    top: -30px;
+  }
+  .timeline ul li:hover::before {
+    background-color: aqua;
+  }
+}
 
 .line {
     margin-left: 500px;
@@ -354,37 +462,7 @@ body{
     font-size: 36px;
     font-weight: 100;
 }
-.swiper {
-    overflow: visible;
-    margin-top: 100px;
-  width: 800px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  
-}
-.swiper-slide {
-  background: #e0e0e013;
-  backdrop-filter: blur(50px);
-  border-radius: 10px;
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  filter: blur(2px);
-  box-shadow:0 15px 50px rgba(0, 0, 0, 0.09);
-}
-.swiper-slide-active{
-    filter: blur(0px);
-}
-.swiper-slide p {
-    font-weight: 100;
-    opacity: 0.8;
-    border-top: 0.5px solid white;
-  padding: 15px;
-  display: block;
-}
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
-    opacity: 0.5;
-}
+
 .material-symbols-outlined {
     padding-top: 35px;
   font-size: 50px !important;
@@ -419,11 +497,7 @@ body{
     /* Support for IE. */
     font-feature-settings: 'liga';
   }
-#card{
-    width: 50%;
-    padding: 0 25%;
 
-}
 @media only screen and (max-width: 640px) {
     #body{
         width: 100vw;
@@ -553,7 +627,7 @@ body{
     display: block;
     user-select: none;
     width: 100%;
-    height: 98%;
+    height: 100vh;
     position: relative;
 }
 #gallery {

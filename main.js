@@ -67,15 +67,7 @@ gsap.to("#page1",{
     scroller:"body"
   }
 });
-gsap.to("#page2",{
-  scrollTrigger:{
-    trigger:"#page2",
-    start:"top top",
-    end:"bottom bottom",
-    pin:true,
-    scroller:"body"
-  }
-});
+
 
 gsap.set("#scroldwn",{y:590})
 gsap.to("#scroldwn",{
@@ -128,7 +120,7 @@ tl.from("#cont", {
 },delay:0.5,onComplete: function () {
   const text = document.querySelector(".typewriter");
   const typewriter = new Typewriter(text, {
-    delay: 3,
+    delay: 0.001,
   });
   typewriter
     .typeString(
@@ -143,7 +135,16 @@ tl.from("#cont", {
 // Scroll to page1 on click
 const cont = document.querySelector("#cont");
 
-
+gsap.from("#title",{scrollTrigger:{
+    scroller:"body",
+    trigger:"#title",
+    scrub:true,
+    start:"110% bottom",
+    end:"280% 50%",
+  },
+  x:-5,
+  scale:4
+})
 if (window.innerWidth < 480) {
   gsap.set("#title",{y:400})
   gsap.set("#splits > p",{y:90})
@@ -159,24 +160,7 @@ if (window.innerWidth < 480) {
     duration:1
     })
 }
-var swiper = new Swiper(".mySwiper", {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  coverflowEffect: {
-    rotate: 0,
-    stretch: 0,
-    depth: 100,
-    modifier: 2,
-    slideShadows: true,
-  },
-  initialSlide:4,
-  autoplay:{
-    delay:2000,
-  }
-});
-gsap.from("#card",{scrollTrigger:{trigger:"#card",scroller:"body",scrub:true,start:"top bottom",end:"30% 80%"},opacity:0,transformOrigin:"50% 50%",  ease: Power2.easeInOut})
+
 gsap.from(".line",{scrollTrigger:{trigger:".line",scroller:"body",scrub:true},width:0,ease:"power2"})
 gsap.from("#title-skill",{scrollTrigger:{trigger:"#title-skill",scroller:"body",scrub:true,start:"top 30%",end:"bottom 10%"},opacity:0,x:1,  ease: Power2.easeInOut})
 
@@ -223,6 +207,18 @@ thumbs.forEach((thumb) => {
     // Display the details of the clicked thumb
     displayThumbDetails(thumb);
   });
+
+  // Add hover event listener to each thumb
+  thumb.addEventListener('mouseover', () => {
+    // Set opacity to 1 for the hovered thumb
+    thumb.style.opacity = 1;
+  });
+
+  // Add mouseout event listener to each thumb
+  thumb.addEventListener('mouseout', () => {
+    // Set opacity back to the default value for the thumb
+    thumb.style.opacity = '';
+  });
 });
 
 // Function to display thumb details in the mainph section
@@ -243,34 +239,40 @@ function displayThumbDetails(thumb) {
       // Reverse the flip animation for the mainImage using GSAP
       gsap.fromTo(
         mainImage,
-        { opacity:0,x:-5 },
-        { opacity:1, duration: 0.3, ease: 'power2.inOut' }
+        { opacity: 0, x: -5, duration: 5 },
+        { opacity: 1, duration: 0.3, ease: 'power2.inOut' }
       );
 
       // Apply flip animation to the abtproject section using GSAP
       gsap.fromTo(
         '#abtproject',
-        { y:10, opacity: 1 },
-        { y:0, opacity: 0, duration: 0.4, ease: 'power2.inOut', delay: 0.1, onComplete: () => {
+        { y: 10, opacity: 1 },
+        {
+          y: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: 'power2.inOut',
+          delay: 0.1,
+          onComplete: () => {
             // Update the mainProjectTitle and mainProjectDescription
             mainProjectTitle.textContent = projectTitle;
             mainProjectDescription.textContent = projectDescription;
-            
+
             // Reverse the flip animation for the abtproject section using GSAP
             gsap.fromTo(
               '#abtproject',
-              { y:-10, opacity: 0 },
-              { y:0, opacity: 1, duration: 0.5, ease: 'power2.inOut' }
+              { y: -10, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.5, ease: 'power2.inOut' }
             );
             gsap.fromTo(
               mainProjectTitle,
-              { x:-50,scale:1.5, opacity: 0 },
-              { x:0, opacity: 1,scale:1, duration: 0.5, ease: 'power2.inOut' }
+              { x: -50, scale: 1.5, opacity: 0 },
+              { x: 0, opacity: 1, scale: 1, duration: 0.5, ease: 'power2.inOut' }
             );
-          }
+          },
         }
       );
-    }
+    },
   });
 }
 
@@ -316,3 +318,4 @@ gsap.from("#thumbs>img",{
 }).on("mouseleave", function(){
   gsap.to(this, {opacity:0.6, duration: 0.3});
 });
+
